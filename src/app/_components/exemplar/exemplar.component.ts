@@ -40,7 +40,8 @@ export class ExemplarComponent implements OnInit {
 
   }
 
-  save() {
+  save() {     
+
     this._exemplarService.create(this.exemplar)
       .subscribe(
         data => {
@@ -53,6 +54,12 @@ export class ExemplarComponent implements OnInit {
           console.log(error);
         }
       );
+  }
+
+  changeBook(book) {
+    console.log(book);
+    this.exemplar.Livro = book;
+
   }
 
   delete(exemplar: any) {

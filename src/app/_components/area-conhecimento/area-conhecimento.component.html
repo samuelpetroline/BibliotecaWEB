@@ -26,11 +26,16 @@
 
 <hr/>
 
-<div *ngFor="let genre of genreList">  
-    <div class="genre" style="padding: 7px;">
-      <div><strong>Descrição:</strong> {{genre.Descricao}} </div>    
-      <button class="btn btn-danger pull-right" type="button" (click)="delete(genre)">X</button>  
-      <hr/>    
+<div class="col-md-12">
+  <div class="row" *ngFor="let genre of genreList" style="border-bottom: 1px solid rgba(0,0,0,.1); padding: 10px;">
+    <div class="col-md-8">
+      <div class="genre" >
+        <div><strong>Descrição:</strong> {{genre.Descricao}} </div>    
+      </div>  
     </div>
+    <div class="col-md-4">
+      <button class="btn btn-danger pull-right" type="button" (click)="delete(genre)">X</button>
+    </div>
+  </div>
 </div>
   

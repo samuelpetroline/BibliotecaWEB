@@ -46,14 +46,22 @@
 
 <hr/>
 
-<div *ngFor="let author of authorList">  
-  <div class="author" style="padding: 10px;">
-    <div>Nome: {{author.Nome}} </div>
-    <span>Telefone: {{author.Telefone }}</span>
-    <span>Endereço: {{author.Endereco }}</span>
-    <button class="btn btn-danger pull-right" type="button" (click)="delete(author)">X</button>
-    <hr/>    
+<div class="col-md-12">
+  <div class="row" *ngFor="let author of authorList" style="border-bottom: 1px solid rgba(0,0,0,.1); padding: 10px;">
+    <div class="col-md-8">
+      <div class="author" >
+        <div><strong>Nome:</strong> {{author.Nome}} </div>
+        <div><strong>Telefone:</strong> {{author.Telefone }}</div>
+        <div><strong>Endereço:</strong> {{author.Endereco }}</div>
+      </div>  
+    </div>
+    <div class="col-md-4">
+      <button class="btn btn-danger pull-right" type="button" (click)="delete(book)">X</button>
+    </div>
   </div>
 </div>
+
+
+
 
   

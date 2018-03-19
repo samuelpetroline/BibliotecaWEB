@@ -46,16 +46,19 @@
   
   <hr/>
   
-  <div *ngFor="let publisher of publisherList">  
-    <div class="publisher" style="padding: 10px;">
-      <div>Nome: {{publisher.Nome}} </div>
-      <span>Telefone: {{publisher.Telefone }}</span>
-      <span>Endereço: {{publisher.Endereco }}</span>
-      <button class="btn btn-danger pull-right" type="button" (click)="delete(publisher)">X</button>
-      <hr/>    
+<div class="col-md-12">
+  <div class="row" *ngFor="let publisher of publisherList" style="border-bottom: 1px solid rgba(0,0,0,.1); padding: 10px;">
+    <div class="col-md-8">
+      <div class="publisher" >
+        <div><strong>Nome:</strong> {{publisher.Nome}}</div>
+        <div><strong>Telefone:</strong> {{publisher.Telefone}}</div>
+        <div><strong>Endereço:</strong> {{publisher.Endereco}}</div>
+      </div>  
     </div>
-  
-  
+    <div class="col-md-4">
+      <button class="btn btn-danger pull-right" type="button" (click)="delete(publisher)">X</button>
+    </div>
   </div>
+</div>
   
     

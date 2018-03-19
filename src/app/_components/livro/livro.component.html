@@ -63,11 +63,19 @@
 
 <hr/>
 
-<div *ngFor="let book of bookList">  
-  <div class="book" style="padding: 10px;">
-    <div>Nome: {{book.Nome}} </div>      
-    <button class="btn btn-danger pull-right" type="button" (click)="delete(book)">X</button>
-    <hr/>    
+<div class="col-md-12">
+  <div class="row" *ngFor="let book of bookList" style="border-bottom: 1px solid rgba(0,0,0,.1); padding: 10px;">
+    <div class="col-md-8">
+      <div class="book" >
+        <div><strong>Nome:</strong> {{book.Nome}}</div>
+        <div><strong>Autores:</strong> {{showAuthors(book)}}</div>
+        <div><strong>Editoras:</strong> {{showPublishers(book)}}</div>
+        <div><strong>Áreas:</strong> {{showGenres(book)}}</div>
+      </div>  
+    </div>
+    <div class="col-md-4">
+      <button class="btn btn-danger pull-right" type="button" (click)="delete(book)">X</button>
+    </div>
   </div>
 </div>
   

@@ -51,13 +51,18 @@
 
 <hr/>
 
-<div *ngFor="let rent of rentList">  
-  <div class="rent" style="padding: 10px;">
-    <div>Nome: {{rent}} </div>
-    <div>Livro: {{rent}} </div>
-    <div>Data Empréstimo: {{rent}} </div>
-    <div>Data Devolução: {{rent}} </div>
-    <button class="btn btn-danger pull-right" type="button" (click)="delete(rent)">X</button>
-    <hr/>    
+<div class="col-md-12">
+  <div class="row" *ngFor="let rent of rentList" style="border-bottom: 1px solid rgba(0,0,0,.1); padding: 10px;">
+    <div class="col-md-8">
+      <div class="rent" >
+        <div><strong>Nome:</strong> {{rent.Usuario.Nome}}</div>
+        <div><strong>Livros:</strong> {{getBooks(rent)}}</div>
+        <div><strong>Data de Empréstimo	:</strong> {{getDate(rent.DataEmprestimo)}}</div>
+        <div><strong>Data de Devolução:</strong> {{getDate(rent.DataDevolucao)}}</div>
+      </div>  
+    </div>
+    <div class="col-md-4">
+      <button class="btn btn-danger pull-right" type="button" (click)="delete(rent)">X</button>
+    </div>
   </div>
 </div>

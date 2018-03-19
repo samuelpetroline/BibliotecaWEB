@@ -106,4 +106,16 @@ export class LivroComponent implements OnInit {
     )
   }
 
+  showAuthors(book) {
+    return book.Autores.map(x => x.Nome).join(", ");
+  }
+
+  showPublishers(book) {
+    return book.Editoras.map(x => x.Nome).join(", ");
+  }
+
+  showGenres(book) {
+    return book.Areas.map(x => x.Descricao).join(", ");
+  }
+
 }

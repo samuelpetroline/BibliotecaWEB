@@ -19,8 +19,8 @@
       <label class="col-md-4 control-label" for="Livros">Livros</label>
       <div class="col-md-4">
 
-        <select id="Livros" name="Livros" class="form-control" [(ngModel)]="exemplar.Livro">
-          <option *ngFor="let book of bookList" [value]="book">
+        <select id="Livros" name="Livros" class="form-control" (ngModelChange)="changeBook($event)" [(ngModel)]="exemplar.Livro">
+          <option *ngFor="let book of bookList" [ngValue]="book">
             {{book.Nome}}
           </option>
         </select>
@@ -40,12 +40,17 @@
 
 <hr/>
 
-<div *ngFor="let exemplar of exemplarList">  
-  <div class="exemplar" style="padding: 10px;">
-    <div>ISBN: {{exemplar.ISBN}} </div>
-    <div>Livro: {{exemplar.Livro.Nome}} </div>
-    <button class="btn btn-danger pull-right" type="button" (click)="delete(exemplar)">X</button>
-    <hr/>    
+<div class="col-md-12">
+  <div class="row" *ngFor="let exemplar of exemplarList" style="border-bottom: 1px solid rgba(0,0,0,.1); padding: 10px;">
+    <div class="col-md-8">
+      <div class="exemplar" >
+        <div><strong>ISBN:</strong> {{exemplar.ISBN}}</div>
+        <div><strong>Livro:</strong> {{exemplar.Livro.Nome}}</div>
+      </div>  
+    </div>
+    <div class="col-md-4">
+      <button class="btn btn-danger pull-right" type="button" (click)="delete(exemplar)">X</button>
+    </div>
   </div>
 </div>
     

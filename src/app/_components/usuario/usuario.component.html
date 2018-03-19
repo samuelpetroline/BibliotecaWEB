@@ -38,11 +38,16 @@
   
 <hr/>
 
-<div *ngFor="let user of userList">  
-    <div class="user" style="padding: 10px;">
-      <div>Nome: {{user.Nome}} </div>
-      <span>Tipo de Conta: {{user.TipoConta == 1 ? "Aluno" : user.TipoConta == 2 ? "Professor" : "Funcionário" }}</span>
+<div class="col-md-12">
+  <div class="row" *ngFor="let user of userList" style="border-bottom: 1px solid rgba(0,0,0,.1); padding: 10px;">
+    <div class="col-md-8">
+      <div class="user" >
+        <div><strong>Nome:</strong> {{user.Nome}} </div>
+        <div><strong>Tipo de Conta:</strong> {{user.TipoConta == 1 ? "Aluno" : user.TipoConta == 2 ? "Professor" : "Funcionário" }} </div>
+      </div>  
+    </div>
+    <div class="col-md-4">
       <button class="btn btn-danger pull-right" type="button" (click)="delete(user)">X</button>
-      <hr/>    
     </div>
   </div>
+</div>
