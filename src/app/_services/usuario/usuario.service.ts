@@ -18,23 +18,23 @@ export class UsuarioService {
   }
     
   create(data: any) {
-    return this.http.post(this.config.apiUrl + '/api/Usuarios', data);
+    return this.http.post(this.config.apiUrl + '/api/Usuarios', data).map((response: any) => response.json());
   }
 
   update(data: any) {
-    return this.http.put(this.config.apiUrl + '/api/Usuarios', data);
+    return this.http.put(this.config.apiUrl + '/api/Usuarios', data).map((response: any) => response.json());
   }
 
   delete(id: number) {
-    return this.http.delete(this.config.apiUrl + '/api/Usuarios/' + id);
+    return this.http.delete(this.config.apiUrl + '/api/Usuarios/' + id).map((response: any) => response.json());
   }
 
   getById(id: number) {
-    return this.http.get(this.config.apiUrl + '/api/Usuarios/' + id).map((response: Response) => response.json());
+    return this.http.get(this.config.apiUrl + '/api/Usuarios/' + id).map((response: any) => response.json());
   }
 
   getAll() {
-    return this.http.get(this.config.apiUrl + '/api/Usuarios').map((response: Response) => response.json());
+    return this.http.get(this.config.apiUrl + '/api/Usuarios').map((response: any) => response.json());
   }
 
 }

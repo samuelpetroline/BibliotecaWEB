@@ -28,8 +28,9 @@
 
 <div *ngFor="let genre of genreList">  
     <div class="genre" style="padding: 7px;">
-      <div><strong>Descrição:</strong> {{genre.Descricao}} </div>      
+      <div><strong>Descrição:</strong> {{genre.Descricao}} </div>    
+      <button class="btn btn-danger pull-right" type="button" (click)="delete(genre)">X</button>  
       <hr/>    
     </div>
-  </div>
+</div>
   

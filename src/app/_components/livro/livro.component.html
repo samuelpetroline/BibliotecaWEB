@@ -1,36 +1,73 @@
-<form class="form-horizontal">
+<form class="form-horizontal" (ngSubmit)="save()">
   <fieldset>
   
     <!-- Form Name -->
-    <legend>Autor</legend>
+    <legend>Livros</legend>
     
     <!-- Text input-->
     <div class="form-group">
       <label class="col-md-4 control-label" for="Nome">Nome</label>  
       <div class="col-md-4">
-      <input id="Nome" name="Nome" type="text" placeholder="" class="form-control input-md" required="">
+      <input id="Nome" name="Nome" type="text" placeholder="" [(ngModel)]="book.Nome" class="form-control input-md" required="">
         
+      </div>
+    </div>
+
+    <!-- Select Multiple -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="Editoras">Editoras</label>
+      <div class="col-md-4">
+
+        <select id="Editoras" name="Editoras" class="form-control" [(ngModel)]="book.Editoras" multiple="multiple">
+          <option *ngFor="let publisher of publisherList" [value]="publisher">
+            {{publisher.Nome}}
+          </option>
+        </select>
       </div>
     </div>
     
     <!-- Select Multiple -->
     <div class="form-group">
-      <label class="col-md-4 control-label" for="Autores">Autores</label>
+        <label class="col-md-4 control-label" for="Autores">Autores</label>
+        <div class="col-md-4">
+
+          <select id="Autores" name="Autores" class="form-control" [(ngModel)]="book.Autores" multiple="multiple">
+            <option *ngFor="let author of authorList" [value]="author">
+              {{author.Nome}}
+            </option>
+          </select>
+        </div>
+      </div>
+
+    <!-- Select Multiple -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="Areas">Áreas</label>
       <div class="col-md-4">
-        <select id="Autores" name="Autores" class="form-control" multiple="multiple">
-          <option value="1">Teste</option>
+        <select id="Areas" name="Areas" class="form-control" [(ngModel)]="book.Areas" multiple="multiple">
+            <option *ngFor="let genre of genreList" [value]="genre">
+                {{genre.Descricao}}
+              </option>
         </select>
       </div>
     </div>
-    
+       
     <!-- Button -->
     <div class="form-group">
-      <label class="col-md-4 control-label" for="singlebutton">Single Button</label>
       <div class="col-md-4">
-        <button id="singlebutton" name="singlebutton" class="btn btn-primary">Button</button>
+        <button id="Salvar" name="Salvar" type="submit" class="btn btn-success">Salvar</button>
       </div>
     </div>
 
   </fieldset>
 </form>
+
+<hr/>
+
+<div *ngFor="let book of bookList">  
+  <div class="book" style="padding: 10px;">
+    <div>Nome: {{book.Nome}} </div>      
+    <button class="btn btn-danger pull-right" type="button" (click)="delete(book)">X</button>
+    <hr/>    
+  </div>
+</div>
   

@@ -18,23 +18,23 @@ export class EmprestimoService {
   }
     
   create(data: any) {
-    return this.http.post(this.config.apiUrl + '/api/Emprestimos', data);
+    return this.http.post(this.config.apiUrl + '/api/Emprestimos', data).map((response: any) => response.json());
   }
 
   update(data: any) {
-    return this.http.put(this.config.apiUrl + '/api/Emprestimos', data);
+    return this.http.put(this.config.apiUrl + '/api/Emprestimos', data).map((response: any) => response.json());
   }
 
   delete(id: number) {
-    return this.http.delete(this.config.apiUrl + '/api/Emprestimos/' + id);
+    return this.http.delete(this.config.apiUrl + '/api/Emprestimos/' + id).map((response: any) => response.json());
   }
 
   getById(id: number) {
-    return this.http.get(this.config.apiUrl + '/api/Emprestimos/' + id).map((response: Response) => response.json());
+    return this.http.get(this.config.apiUrl + '/api/Emprestimos/' + id).map((response: any) => response.json());
   }
 
   getAll() {
-    return this.http.get(this.config.apiUrl + '/api/Emprestimos').map((response: Response) => response.json());
+    return this.http.get(this.config.apiUrl + '/api/Emprestimos').map((response: any) => response.json());
   }
 
 }
