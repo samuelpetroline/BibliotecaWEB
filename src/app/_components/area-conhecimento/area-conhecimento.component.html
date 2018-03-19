@@ -1,0 +1,35 @@
+<form class="form-horizontal" #f="ngForm" (ngSubmit)="f.form.valid && save()">
+  <fieldset>
+  
+  <!-- Form Name -->
+  <legend>Áreas de Conhecimento</legend>
+  
+  <!-- Text input-->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="Descricao">Descrição</label>  
+    <div class="col-md-4">
+    <input id="Descricao" name="Descricao" [(ngModel)]="genre.Descricao" type="text" placeholder="" class="form-control input-md" required="">
+      
+    </div>
+  </div>
+  
+  <!-- Button -->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="Salvar"></label>
+    <div class="col-md-4">
+      <button id="Salvar" name="Salvar" type="submit" class="btn btn-success">Salvar</button>
+    </div>
+  </div>
+  
+  </fieldset>
+</form>
+
+<hr/>
+
+<div *ngFor="let genre of genreList">  
+    <div class="genre" style="padding: 7px;">
+      <div><strong>Descrição:</strong> {{genre.Descricao}} </div>      
+      <hr/>    
+    </div>
+  </div>
+  

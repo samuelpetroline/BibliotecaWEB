@@ -1,0 +1,59 @@
+<form class="form-horizontal" #f="ngForm" (ngSubmit)="f.form.valid && save()" novalidate>
+  <fieldset>
+  
+  <!-- Form Name -->
+  <legend>Autores</legend>
+  
+  <!-- Text input-->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="Nome">Nome</label>  
+    <div class="col-md-4">
+    <input id="Nome" name="nome" [(ngModel)]="author.Nome" #nome="ngModel" type="text" placeholder="" class="form-control input-md" required="">
+      
+    </div>
+  </div>
+  
+  
+  
+  <!-- Text input-->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="Telefone">Telefone</label>  
+    <div class="col-md-4">
+    <input id="Telefone" name="telefone" [textMask]="{mask: mask}" [(ngModel)]="author.Telefone" #telefone="ngModel" type="text" placeholder="" class="form-control input-md" required="">
+      
+    </div>
+  </div>
+  
+  <!-- Text input-->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="Endereco">Endereço</label>  
+    <div class="col-md-4">
+    <input id="Endereco" name="endereco" [(ngModel)]="author.Endereco" #endereco="ngModel" type="text" placeholder="" class="form-control input-md" required="">
+      
+    </div>
+  </div>
+
+  <!-- Button -->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="Salvar"></label>
+    <div class="col-md-4">
+      <button id="Salvar" name="Salvar" class="btn btn-success" type="submit">Salvar</button>
+    </div>
+  </div>
+  
+  </fieldset>
+</form>
+
+<hr/>
+
+<div *ngFor="let author of authorList">  
+  <div class="author" style="padding: 10px;">
+    <div>Nome: {{author.Nome}} </div>
+    <span>Telefone: {{author.Telefone }}</span>
+    <span>Endereço: {{author.Endereco }}</span>
+    <button class="btn btn-danger pull-right" type="button" (click)="delete(author)">X</button>
+    <hr/>    
+  </div>
+</div>
+
+  

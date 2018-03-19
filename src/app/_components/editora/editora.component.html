@@ -1,0 +1,61 @@
+<form class="form-horizontal" #f="ngForm" (ngSubmit)="f.form.valid && save()" novalidate>
+    <fieldset>
+    
+    <!-- Form Name -->
+    <legend>Editoras</legend>
+    
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="Nome">Nome</label>  
+      <div class="col-md-4">
+      <input id="Nome" name="nome" [(ngModel)]="publisher.Nome" #nome="ngModel" type="text" placeholder="" class="form-control input-md" required="">
+        
+      </div>
+    </div>
+    
+    
+    
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="Telefone">Telefone</label>  
+      <div class="col-md-4">
+      <input id="Telefone" name="telefone" [textMask]="{mask: mask}" [(ngModel)]="publisher.Telefone" #telefone="ngModel" type="text" placeholder="" class="form-control input-md" required="">
+        
+      </div>
+    </div>
+    
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="Endereco">Endereço</label>  
+      <div class="col-md-4">
+      <input id="Endereco" name="endereco" [(ngModel)]="publisher.Endereco" #endereco="ngModel" type="text" placeholder="" class="form-control input-md" required="">
+        
+      </div>
+    </div>
+  
+    <!-- Button -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="Salvar"></label>
+      <div class="col-md-4">
+        <button id="Salvar" name="Salvar" class="btn btn-success" tye="submit">Salvar</button>
+      </div>
+    </div>
+    
+    </fieldset>
+  </form>
+  
+  <hr/>
+  
+  <div *ngFor="let publisher of publisherList">  
+    <div class="publisher" style="padding: 10px;">
+      <div>Nome: {{publisher.Nome}} </div>
+      <span>Telefone: {{publisher.Telefone }}</span>
+      <span>Endereço: {{publisher.Endereco }}</span>
+      <button class="btn btn-danger pull-right" type="button" (click)="delete(publisher)">X</button>
+      <hr/>    
+    </div>
+  
+  
+  </div>
+  
+    

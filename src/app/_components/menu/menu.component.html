@@ -1,36 +1,53 @@
-<nav class="hidden-sm-down sidebar">
-  <ul class="nav flex-column">
-    <li class="nav-photo">
-      <div class="nav-login">
-        <a class="no-style" [routerLink]="['settings']" fragment="user"> <img src="{{user.Imagem}}" /> </a>
-      </div>            
-    </li>
-    <li>
-      <div class="nav-user">
-         {{ user.Nome }} 
-      </div>
-    </li>
-  </ul>
-  <ul class="nav nav-pills flex-column">
-    <li class="nav-item" routerLinkActive="active">
-      <a class="nav-link" [routerLink]="['dashboard']" > <i class="fa fa-home" aria-hidden="true"></i> Principal </a>
-    </li>
-    <li class="nav-item" routerLinkActive="active">
-      <a class="nav-link"[routerLink]="['orders']" > <i class="fa fa-pencil" aria-hidden="true"></i> Pedidos </a>
-    </li>
-    <li class="nav-item" routerLinkActive="active">
-      <a class="nav-link"[routerLink]="['products']"><i class="fa fa-cutlery" aria-hidden="true"></i> Produtos </a>
-    </li>
-    <li class="nav-item" routerLinkActive="active" [hidden]="user.Admin">
-      <a class="nav-link"[routerLink]="['cart']" > <i class="fa fa-shopping-cart" aria-hidden="true"></i> Carrinho 
-      <span class="badge badge-info" [hidden]="(cartItemsObservable | async).length == 0">{{ (cartItemsObservable | async).length }}</span>
-      </a>
-    </li>
-    <li class="nav-item" routerLinkActive="active">
-      <a class="nav-link"[routerLink]="['settings']" > <i class="fa fa-cog" aria-hidden="true"></i> Configurações </a>
-    </li>    
-    <li class="nav-item nav-logout">
-      <a class="nav-link" (click)="logout()"><i class="fa fa-sign-out" aria-hidden="true"></i> Sair </a>
-    </li>
-  </ul>
-</nav>
+<div id="wrapper" class="toggled">
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand">
+                <a href="#">
+                    Start Bootstrap
+                </a>
+            </li>
+
+            <li routerLinkActive="active">
+                    <a [routerLink]="['emprestimo']">Empréstimo</a>
+            </li>
+
+            <li routerLinkActive="active">
+                <a [routerLink]="['livros']">Livros</a>
+            </li>
+
+            <li routerLinkActive="active">
+                <a [routerLink]="['exemplares']">Exemplares</a>
+            </li>
+
+            <li routerLinkActive="active">
+                <a [routerLink]="['autores']">Autores</a>
+            </li>
+
+            <li routerLinkActive="active">
+                <a [routerLink]="['editoras']">Editoras</a>
+            </li>
+
+            <li routerLinkActive="active">
+                <a [routerLink]="['areas-conhecimento']">Áreas Conhecimento</a>
+            </li>          
+
+            <li routerLinkActive="active">
+                <a [routerLink]="['usuarios']">Usuário</a>
+            </li>              
+        </ul>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+        <div class="container-fluid">
+            
+           
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+</div>
+<!-- /#wrapper -->

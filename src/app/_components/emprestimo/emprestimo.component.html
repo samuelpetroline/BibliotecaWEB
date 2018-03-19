@@ -1,0 +1,38 @@
+<form class="form-horizontal">
+  <fieldset>
+    
+    <!-- Form Name -->
+    <legend>Form Name</legend>
+    
+    <!-- Select Basic -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="selectbasic">Usuário</label>
+      <div class="col-md-4">
+        <select id="selectbasic" name="selectbasic" class="form-control">
+          <option value="1">teste</option>
+        </select>
+      </div>
+    </div>
+    
+    <!-- Select Multiple -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="Exemplares">Exemplares</label>
+      <div class="col-md-4">
+        <select id="Exemplares" name="Exemplares" class="form-control" multiple="multiple">
+          <option value="1">Teste</option>
+        </select>
+      </div>
+    </div>
+    
+    <my-date-picker name="mydate" [options]="myDatePickerOptions" ngModel="model" required></my-date-picker>
+    
+    <!-- Button -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="Salvar"></label>
+      <div class="col-md-4">
+        <button id="Salvar" name="Salvar" class="btn btn-success">Salvar</button>
+      </div>
+    </div>
+
+  </fieldset>
+</form>
